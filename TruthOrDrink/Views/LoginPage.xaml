@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TruthOrDrink.Views.LoginPage"
+             Title="Login">
+
+    <VerticalStackLayout
+        Padding="30,0">
+
+        <Label 
+            Text="Login"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+        <Entry
+            x:Name="UsernameEntry"
+            Placeholder="Username"
+            TextChanged="Username_TextChanged" />
+        <Label
+            x:Name="UsernameError"
+            IsVisible="False"
+            TextColor="Red" />
+
+        <Entry
+            x:Name="PasswordEntry"
+            IsPassword="True"
+            Placeholder="Password"
+            TextChanged="Password_TextChanged" />
+        <Label
+            x:Name="PasswordError"
+            IsVisible="false"
+            TextColor="Red" />
+
+        <Button
+            x:Name="LoginBtn"
+            Text="Login"
+            Clicked="Login" />
+
+    </VerticalStackLayout>
+
+</ContentPage>

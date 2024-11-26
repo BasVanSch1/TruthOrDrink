@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TruthOrDrink.Views.MainPage"
+             Title="MainPage"
+             Shell.NavBarIsVisible="False">
+    
+    <ScrollView>
+        <VerticalStackLayout
+        Padding="30,0">
+
+            <Image
+            x:Name="QRImage"
+            Source="qrplaceholder.png"
+            HeightRequest="200"
+            WidthRequest="200"
+            Margin="0,30"/>
+
+            <FlexLayout Direction="Row" Margin="0,0,0,10" >
+                <Label
+                HorizontalTextAlignment="Center"
+                Text="Sessie code:" />
+
+                <Label
+                x:Name="SessionCode"
+                FlexLayout.Grow="1"
+                HorizontalTextAlignment="Center"
+                Text="Nog niet gegenereerd" />
+
+            </FlexLayout>
+
+            <Button
+            x:Name="GenerateQRCodeBtn"
+            Text="Genereer sessie"
+            Clicked="GenerateSessionCode" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
