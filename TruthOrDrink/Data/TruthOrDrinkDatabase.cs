@@ -39,7 +39,7 @@ namespace TruthOrDrink.Data
             return await Database.UpdateAsync(question);
         }
 
-        public async Task<Question>? GetQuestion(int id)
+        public async Task<Question>? GetQuestionAsync(int id)
         {
             if (id <= 0)
             {
