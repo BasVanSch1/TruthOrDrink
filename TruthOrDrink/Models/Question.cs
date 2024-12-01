@@ -10,7 +10,7 @@ namespace TruthOrDrink.Models
 {
     public class Question
     {
-        [PrimaryKey]
+        [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
         [NotNull]
         public string Description { get; set; }
