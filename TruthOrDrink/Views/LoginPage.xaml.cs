@@ -47,11 +47,12 @@ public partial class LoginPage : ContentPage
         if (inputValid)
         {
             await SecureStorage.SetAsync("IsAuthenticated", "true");
-            Vibration.Default.Vibrate(500);
-            await Shell.Current.GoToAsync("//main");
+            Vibration.Vibrate(500);
+            await Shell.Current.GoToAsync("//mainpage");
+            return;
         }
 
-        Vibration.Default.Vibrate(1000);
+        Vibration.Vibrate(1000);
         return;
     }
 }

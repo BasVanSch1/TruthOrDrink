@@ -7,7 +7,8 @@ namespace TruthOrDrink
         public AppShell()
         {
             InitializeComponent();
-
+            //Shell.Current.Navigating += OnNavigating; // probeersel om NavigationStack corruption te fixen.
+            
             Routing.RegisterRoute("loginpage", typeof(LoginPage));
             Routing.RegisterRoute("mainpage", typeof(MainPage));
             Routing.RegisterRoute("createquestionpage", typeof(CreateQuestionPage));
@@ -27,6 +28,16 @@ namespace TruthOrDrink
             Routing.RegisterRoute("profileeditpage", typeof(ProfileEditPage));
             Routing.RegisterRoute("profilepage", typeof(ProfilePage));
             Routing.RegisterRoute("newpage1", typeof(NewPage1)); // testing page
+
+        }
+
+        // probeersel voor NavigationStack fix, niet in gebruik op het moment.
+        private async void OnNavigating(object? sender, ShellNavigatingEventArgs e)
+        {
+            if (e.Target.Location.OriginalString.Contains("mainpage"))
+            {
+                await Shell.Current.GoToAsync("'//mainpage");
+            }
         }
     }
 }

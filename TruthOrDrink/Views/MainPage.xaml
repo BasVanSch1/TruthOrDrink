@@ -3,37 +3,78 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TruthOrDrink.Views.MainPage"
              Title="MainPage"
-             Shell.NavBarIsVisible="False">
-    
-    <ScrollView>
-        <VerticalStackLayout
-        Padding="30,0">
+             Shell.NavBarIsVisible="False"
+             >
 
-            <Image
-            x:Name="QRImage"
-            Source="qrplaceholder.png"
-            HeightRequest="200"
-            WidthRequest="200"
-            Margin="0,30"/>
+    <Grid RowDefinitions="auto, *, *"
+          ColumnDefinitions="*, *"
+          RowSpacing="20"
+          ColumnSpacing="20"
+          VerticalOptions="FillAndExpand"
+          Padding="30,0">
 
-            <FlexLayout Direction="Row" Margin="0,0,0,10" >
-                <Label
-                HorizontalTextAlignment="Center"
-                Text="Sessie code:" />
+        <Border Grid.Row="0"
+                Grid.ColumnSpan="2"
+                Stroke="Black"
+                StrokeThickness="2"
+                Margin="0,10,0,-60">
 
-                <Label
-                x:Name="SessionCode"
-                FlexLayout.Grow="1"
-                HorizontalTextAlignment="Center"
-                Text="Nog niet gegenereerd" />
+            <VerticalStackLayout HorizontalOptions="Center"
+                                 VerticalOptions="Center">
+                
+                <Label HorizontalTextAlignment="Center"
+                       FontSize="25" Text="Truth" />
+                <Label HorizontalTextAlignment="Center"
+                        FontSize="25" Text="or" />
+                <Label HorizontalTextAlignment="Center"
+                        FontSize="25" Text="Drink" />
+            </VerticalStackLayout>
+        </Border>
 
-            </FlexLayout>
 
-            <Button
-            x:Name="GenerateQRCodeBtn"
-            Text="Genereer sessie"
-            Clicked="GenerateSessionCode" />
 
-        </VerticalStackLayout>
-    </ScrollView>
+        <Button x:Name="HostGameBtn"
+                Grid.Row="1"
+                Grid.Column="0"
+                Text="Host"
+                Clicked="HostGameBtn_Clicked"
+                HorizontalOptions="End"
+                VerticalOptions="End"
+                HeightRequest="125"
+                WidthRequest="125"
+                BackgroundColor="Green"/>
+
+        <Button x:Name="JoinGameBtn"
+                Grid.Row="1"
+                Grid.Column="1"
+                Text="Join"
+                Clicked="JoinGameBtn_Clicked"
+                HorizontalOptions="Start"
+                VerticalOptions="End"
+                HeightRequest="125"
+                WidthRequest="125"
+                BackgroundColor="OrangeRed"/>
+
+        <Button x:Name="PersonalQuestionsBtn"
+                Grid.Row="2"
+                Grid.Column="0"
+                Text="Vragenlijst"
+                Clicked="PersonalQuestionsBtn_Clicked"
+                HorizontalOptions="End"
+                VerticalOptions="Start"
+                HeightRequest="125"
+                WidthRequest="125"
+                BackgroundColor="DarkGoldenrod"/>
+
+        <Button x:Name="HowToPlayBtn"
+                Grid.Row="2"
+                Grid.Column="1"
+                Text="How to play?"
+                Clicked="HowToPlayBtn_Clicked"
+                HorizontalOptions="Start"
+                VerticalOptions="Start"
+                HeightRequest="125"
+                WidthRequest="125"
+                BackgroundColor="BlueViolet"/>
+    </Grid>
 </ContentPage>
