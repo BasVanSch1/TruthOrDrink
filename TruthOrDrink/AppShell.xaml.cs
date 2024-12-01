@@ -13,6 +13,7 @@ namespace TruthOrDrink
             Routing.RegisterRoute("createquestionpage", typeof(CreateQuestionPage));
             Routing.RegisterRoute("forgotpasswordpage", typeof(ForgotPasswordPage));
             Routing.RegisterRoute("gamepage", typeof(GamePage));
+            Routing.RegisterRoute("gamequestionspage", typeof(GameQuestionsPage));
             Routing.RegisterRoute("gamesettingspage", typeof(GameSettingsPage));
             Routing.RegisterRoute("hostaddquestionconfirmpage", typeof(HostAddQuestionConfirmPage));
             Routing.RegisterRoute("hostlobbypage", typeof(HostLobbyPage));
