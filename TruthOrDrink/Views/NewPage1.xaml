@@ -12,11 +12,23 @@
                      Text="Logout"
                      Clicked="LogoutToolbarItem_Clicked" />
     </ContentPage.ToolbarItems>
-        
+
     <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+
+        <FlexLayout Direction="Row"
+                    Margin="0, 0, 0, 25">
+            <Button x:Name="GetQuestionsBtn"
+                    Text="Get Questions"
+                    Clicked="GetQuestionsBtn_Clicked" />
+
+            <Button x:Name="CreateQuestionBtn"
+                    Text="Create Question"
+                    Clicked="CreateQuestionBtn_Clicked" />
+        </FlexLayout>
+
+        <FlexLayout x:Name="QuestionsListLayout"
+                    Direction="Column">
+            
+        </FlexLayout>
     </VerticalStackLayout>
 </ContentPage>
