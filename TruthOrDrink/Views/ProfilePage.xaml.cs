@@ -6,4 +6,11 @@ public partial class ProfilePage : ContentPage
 	{
 		InitializeComponent();
 	}
+
+    private async void LogoutBtn_Clicked(object sender, EventArgs e)
+    {
+		SecureStorage.Remove("IsAuthenticated");
+        Navigation.InsertPageBefore(new LoginPage(), Navigation.NavigationStack[0]); // Insert LoginPage before the root, thus making it the new root.
+		await Navigation.PopToRootAsync(); // Go to the root page, which is now the LoginPage. This also clears the navigation stack up until the root page.
+    }
 }
