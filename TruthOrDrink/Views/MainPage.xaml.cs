@@ -10,24 +10,23 @@ public partial class MainPage : ContentPage
 		InitializeComponent();
 	}
 
-    private void GenerateSessionCode(object sender, EventArgs e)
+    private async void HostGameBtn_Clicked(object sender, EventArgs e)
     {
-        int sessionCode = RandomHelper.GetRandomNumber(1, 9999);
-        string formattedSessionCode = sessionCode.ToString("D4");
-
-        QRCodeGenerator qrGenerator = new QRCodeGenerator();
-
-        // create QR data
-        QRCodeData qrCodeData = qrGenerator.CreateQrCode(formattedSessionCode, QRCodeGenerator.ECCLevel.L);
-        // Create the QRcode (PNG bytes)
-        PngByteQRCode qrCode = new PngByteQRCode(qrCodeData);
-        // Get the byte data (bytes of the image)
-        byte[] qrCodeBytes = qrCode.GetGraphic(20);
-
-        QRImage.Source = ImageSource.FromStream(() => new MemoryStream(qrCodeBytes));
-        SessionCode.Text = formattedSessionCode;
-
-        GenerateQRCodeBtn.Text = "Nieuwe sessiecode genereren";
+        await Navigation.PushAsync(new HostLobbyPage());
     }
 
+    private async void JoinGameBtn_Clicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new JoinLobbyPage());
+    }
+
+    private async void PersonalQuestionsBtn_Clicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new PersonalQuestionsPage());
+    }
+
+    private async void HowToPlayBtn_Clicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new HowToPlayPage());
+    }
 }

@@ -18,7 +18,9 @@ namespace TruthOrDrink.Data
                 return;
 
             Database = new SQLiteAsyncConnection(Constants.DatabasePath, Constants.Flags);
-            var result = await Database.CreateTableAsync<Question>();
+            await Database.CreateTableAsync<Question>();
+            await Database.CreateTableAsync<Profile>();
+            
         }
 
         public async Task<List<Question>> GetQuestionsAsync()

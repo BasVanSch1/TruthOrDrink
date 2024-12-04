@@ -14,6 +14,13 @@
         Route="login" />
 
     <TabBar Route="main">
+        <Tab Title="PersonalQuestions" Icon="home.svg" >
+            <ShellContent
+                Title="PersonalQuestions"
+                ContentTemplate="{DataTemplate views:PersonalQuestionsPage}"
+                Route="personalquestionspage" />
+        </Tab>
+
         <Tab Title="Home" Icon="home.svg" >
             <ShellContent
                 Title="Home"
@@ -21,11 +28,11 @@
                 Route="mainpage" />
         </Tab>
 
-        <Tab Title="New Page" Icon="home.svg">
+        <Tab Title="Profile" Icon="home.svg" >
             <ShellContent
-                Title="New Page"
-                ContentTemplate="{DataTemplate views:NewPage1}"
-                Route="newpage1" />
+                Title="Profile"
+                ContentTemplate="{DataTemplate views:ProfilePage}"
+                Route="profilepage" />
         </Tab>
     </TabBar>
 </Shell>

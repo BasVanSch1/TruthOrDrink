@@ -1,10 +1,4 @@
 ﻿using SQLite;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TruthOrDrink.Models
 {
@@ -15,7 +9,12 @@ namespace TruthOrDrink.Models
         [NotNull]
         public string Description { get; set; }
         [NotNull]
-        public QuestionType QuestionType { get; set; }
+        public QuestionType Type { get; set; }
+        [NotNull]
+        public QuestionCategory Category { get; set; }
+        [NotNull]
+        public int Level { get; set; } = 1;
+        Profile? CreatedBy { get; set; } = null;
     }
 
     public enum QuestionType
@@ -24,4 +23,13 @@ namespace TruthOrDrink.Models
         Assignment,
         Photo
     }
+
+    public enum QuestionCategory
+    {
+        Normal,
+        Spicy,
+        Love,
+        HappyHour
+    }
+
 }

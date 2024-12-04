@@ -20,7 +20,7 @@ public partial class NewPage1 : ContentPage
     private async void LogoutToolbarItem_Clicked(object sender, EventArgs e)
     {
         await SecureStorage.SetAsync("IsAuthenticated", "false");
-        await Shell.Current.GoToAsync("//login");
+        await Shell.Current.GoToAsync("//loginpage");
     }
 
     private async void GetQuestionsBtn_Clicked(object sender, EventArgs e)
@@ -57,7 +57,7 @@ public partial class NewPage1 : ContentPage
         var question = new Question()
         {
             Description = input,
-            QuestionType = QuestionType.Question,
+            Type = QuestionType.Question,
         };
 
         // save a new question to the database if it doesn't exist, otherwise update the existing one. (in this case question has no ID so it will create a new one)
