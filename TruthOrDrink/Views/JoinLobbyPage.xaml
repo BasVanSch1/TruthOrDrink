@@ -24,7 +24,6 @@
                    HeightRequest="30"/>
         </Border>
 
-
         <Button x:Name="JoinBySessionCodeBtn"
                 Grid.Row="4"
                 Text="Join"

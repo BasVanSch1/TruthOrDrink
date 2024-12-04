@@ -19,7 +19,7 @@
 
             <VerticalStackLayout HorizontalOptions="Center"
                                  VerticalOptions="Center">
-                
+
                 <Label HorizontalTextAlignment="Center"
                        FontSize="25" Text="Truth" />
                 <Label HorizontalTextAlignment="Center"
@@ -28,9 +28,7 @@
                         FontSize="25" Text="Drink" />
             </VerticalStackLayout>
         </Border>
-
-
-
+        
         <Button x:Name="HostGameBtn"
                 Grid.Row="1"
                 Grid.Column="0"
