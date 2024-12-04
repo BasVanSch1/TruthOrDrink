@@ -57,7 +57,7 @@ public partial class NewPage1 : ContentPage
         var question = new Question()
         {
             Description = input,
-            QuestionType = QuestionType.Question,
+            Type = QuestionType.Question,
         };
 
         // save a new question to the database if it doesn't exist, otherwise update the existing one. (in this case question has no ID so it will create a new one)

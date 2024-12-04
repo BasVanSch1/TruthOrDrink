@@ -9,6 +9,6 @@ public partial class JoinLobbyPage : ContentPage
 
     private async void JoinBySessionCodeBtn_Clicked(object sender, EventArgs e)
     {
-		await Shell.Current.GoToAsync("playerlobbypage");
+		await Navigation.PushAsync(new PlayerLobbyPage());
     }
 }

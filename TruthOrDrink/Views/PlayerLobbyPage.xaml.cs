@@ -34,13 +34,13 @@ public partial class PlayerLobbyPage : ContentPage
         CurrentPlayer.TextColor = new Color(0,128,0);
     }
 
-    private void ShareQuestionsBtn_Clicked(object sender, EventArgs e)
+    private async void ShareQuestionsBtn_Clicked(object sender, EventArgs e)
     {
-        Shell.Current.GoToAsync("playersharequestionpage");
+        await Navigation.PushAsync(new PlayerShareQuestionPage());
     }
 
-    private void PersonalQuestionsBtn_Clicked(object sender, EventArgs e)
+    private async void PersonalQuestionsBtn_Clicked(object sender, EventArgs e)
     {
-
+        await Navigation.PushAsync(new PersonalQuestionsPage());
     }
 }

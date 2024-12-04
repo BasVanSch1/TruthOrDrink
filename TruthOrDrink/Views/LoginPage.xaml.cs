@@ -2,9 +2,10 @@ namespace TruthOrDrink.Views;
 
 public partial class LoginPage : ContentPage
 {
-	public LoginPage()
+    public LoginPage()
 	{
 		InitializeComponent();
+        Loaded += OnPageLoaded;
 	}
 
     private void Username_TextChanged(object sender, EventArgs e)
@@ -32,7 +33,6 @@ public partial class LoginPage : ContentPage
 
         if (String.IsNullOrWhiteSpace(PasswordEntry.Text))
         {
-
             PasswordError.Text = "Password is required.";
             PasswordError.IsVisible = true;
             inputValid = false;
@@ -48,11 +48,29 @@ public partial class LoginPage : ContentPage
         {
             await SecureStorage.SetAsync("IsAuthenticated", "true");
             Vibration.Vibrate(500);
-            await Shell.Current.GoToAsync("//mainpage");
+
+            NavigateToMainPage();
+
             return;
         }
 
         Vibration.Vibrate(1000);
         return;
+    }
+
+    private async void OnPageLoaded(object? sender, EventArgs e)
+    {
+        string? authenticated = await SecureStorage.GetAsync("IsAuthenticated");
+
+        if (authenticated != null && String.Equals(authenticated, "true", StringComparison.OrdinalIgnoreCase))
+        {
+            NavigateToMainPage();
+        }
+    }
+
+    private async void NavigateToMainPage()
+    {
+        await Navigation.PushAsync(new MainTabbedPage()); // open page with all tabs in it (where the default page is the Homepage)
+        Navigation.RemovePage(this); // remove the LoginPage from the navigation stack (so that it is no longer the root page and the user cannot go back to it.)
     }
 }

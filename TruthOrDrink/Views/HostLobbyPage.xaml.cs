@@ -29,18 +29,18 @@ public partial class HostLobbyPage : ContentPage
         SessionCode.Text = formattedSessionCode;
     }
 
-    private void GameSettingsBtn_Clicked(object sender, EventArgs e)
+    private async void GameSettingsBtn_Clicked(object sender, EventArgs e)
     {
-
+        await Navigation.PushAsync(new GameSettingsPage());
     }
 
-    private void StartGameBtn_Clicked(object sender, EventArgs e)
+    private async void StartGameBtn_Clicked(object sender, EventArgs e)
     {
-
+        await Navigation.PushAsync(new GamePage());
     }
 
-    private void GameQuestionsBtn_Clicked(object sender, EventArgs e)
+    private async void GameQuestionsBtn_Clicked(object sender, EventArgs e)
     {
-
+        await Navigation.PushAsync(new GameQuestionsPage());
     }
 }

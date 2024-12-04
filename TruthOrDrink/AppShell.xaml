@@ -16,9 +16,9 @@
     <TabBar Route="main">
         <Tab Title="PersonalQuestions" Icon="home.svg" >
             <ShellContent
-        Title="PersonalQuestions"
-        ContentTemplate="{DataTemplate views:PersonalQuestionsPage}"
-        Route="personalquestionspage" />
+                Title="PersonalQuestions"
+                ContentTemplate="{DataTemplate views:PersonalQuestionsPage}"
+                Route="personalquestionspage" />
         </Tab>
 
         <Tab Title="Home" Icon="home.svg" >
