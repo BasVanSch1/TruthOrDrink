@@ -39,8 +39,19 @@ public partial class PlayerLobbyPage : ContentPage
         await Navigation.PushAsync(new PlayerShareQuestionPage());
     }
 
-    private async void PersonalQuestionsBtn_Clicked(object sender, EventArgs e)
+    private void PersonalQuestionsBtn_Clicked(object sender, EventArgs e)
     {
-        await Navigation.PushAsync(new PersonalQuestionsPage());
+        var parent = Parent;
+
+        // While the parent is not of type TabbedPage
+        while (parent != null && parent is not TabbedPage)
+        {
+            parent = parent.Parent; // Get the parent of the parent
+        }
+
+        if (parent is TabbedPage tabbedPage)
+        {
+            tabbedPage.CurrentPage = tabbedPage.Children[0]; // Switch the tab to the Personal Questions tab.
+        }
     }
 }
