@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:views="clr-namespace:NavigationTestMAUI.Views"
+            xmlns:android="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.AndroidSpecific;assembly=Microsoft.Maui.Controls"
+            x:Class="NavigationTestMAUI.AppTabbedPage"
+            android:TabbedPage.ToolbarPlacement="Bottom"
+            android:TabbedPage.IsSwipePagingEnabled="False">
+    
+    <NavigationPage Title="Page1">
+        <x:Arguments>
+            <views:Page1 />
+        </x:Arguments>
+    </NavigationPage>
+
+    <NavigationPage Title="Home"
+            IconImageSource="home.svg">
+        <x:Arguments>
+            <views:HomePage />
+        </x:Arguments>
+    </NavigationPage>
+
+    <NavigationPage Title="Page2">
+        <x:Arguments>
+            <views:Page2 />
+        </x:Arguments>
+    </NavigationPage>
+    
+</TabbedPage>

@@ -1,0 +1,42 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35506.116
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MauiApp1", "MauiApp1\MauiApp1\MauiApp1.csproj", "{AE7CC3EB-EA90-447C-96F8-4FC7F2833D2C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MauiApp1.Shared", "MauiApp1\MauiApp1.Shared\MauiApp1.Shared.csproj", "{FC19F24D-D2E7-42B9-AD76-6F1BBBF65421}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MauiApp1.Web", "MauiApp1\MauiApp1.Web\MauiApp1.Web.csproj", "{04C8B1B0-B845-4AE5-AEE2-34EBCD0008F4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Android|Any CPU = Android|Any CPU
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AE7CC3EB-EA90-447C-96F8-4FC7F2833D2C}.Android|Any CPU.ActiveCfg = Android|Any CPU
+		{AE7CC3EB-EA90-447C-96F8-4FC7F2833D2C}.Android|Any CPU.Build.0 = Android|Any CPU
+		{AE7CC3EB-EA90-447C-96F8-4FC7F2833D2C}.Android|Any CPU.Deploy.0 = Android|Any CPU
+		{AE7CC3EB-EA90-447C-96F8-4FC7F2833D2C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE7CC3EB-EA90-447C-96F8-4FC7F2833D2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE7CC3EB-EA90-447C-96F8-4FC7F2833D2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE7CC3EB-EA90-447C-96F8-4FC7F2833D2C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC19F24D-D2E7-42B9-AD76-6F1BBBF65421}.Android|Any CPU.ActiveCfg = Android|Any CPU
+		{FC19F24D-D2E7-42B9-AD76-6F1BBBF65421}.Android|Any CPU.Build.0 = Android|Any CPU
+		{FC19F24D-D2E7-42B9-AD76-6F1BBBF65421}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC19F24D-D2E7-42B9-AD76-6F1BBBF65421}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC19F24D-D2E7-42B9-AD76-6F1BBBF65421}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC19F24D-D2E7-42B9-AD76-6F1BBBF65421}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04C8B1B0-B845-4AE5-AEE2-34EBCD0008F4}.Android|Any CPU.ActiveCfg = Android|Any CPU
+		{04C8B1B0-B845-4AE5-AEE2-34EBCD0008F4}.Android|Any CPU.Build.0 = Android|Any CPU
+		{04C8B1B0-B845-4AE5-AEE2-34EBCD0008F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04C8B1B0-B845-4AE5-AEE2-34EBCD0008F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04C8B1B0-B845-4AE5-AEE2-34EBCD0008F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04C8B1B0-B845-4AE5-AEE2-34EBCD0008F4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
