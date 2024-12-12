@@ -17,7 +17,7 @@ namespace TruthOrDrink.Helpers
             var salt = new byte[SaltSize]; // maakt een lege byte array aan met de lengte van SaltSize
             RandomNumberGenerator.Fill(salt); // vult de salt byte array met random bytes
 
-            // maakt een instance aan van Rfc2898DeriveBytes aan met de password, salt, iterations en het HashAlgoritme
+            // maakt een instance aan van Rfc2898DeriveBytes met de password, salt, iterations en het HashAlgoritme
             var pbkdf2 = new Rfc2898DeriveBytes(password, salt, Iterations, HashAlgorithmName.SHA256);
             var hash = pbkdf2.GetBytes(KeySize); // haalt de hash op van het wachtwoord in vorm van bytes via de pbkdf2 instance
 
@@ -35,7 +35,7 @@ namespace TruthOrDrink.Helpers
             var salt = new byte[SaltSize]; // maakt een lege byte array aan, net zoals bij het hashen
             Array.Copy(hashBytes, 0, salt, 0, SaltSize);
 
-            var pbkdf2 = new Rfc2898DeriveBytes(password, salt, Iterations, HashAlgorithmName.SHA256);
+            var pbkdf2 = new Rfc2898DeriveBytes(password, salt, Iterations, HashAlgorithmName.SHA256); // hash het ingevulde wachtwoord
             var hash = pbkdf2.GetBytes(KeySize);
 
             for (int i = 0; i < KeySize; i++) // iterreer over de hash en kijk of deze overeenkomt met de hash in de hashBytes array
