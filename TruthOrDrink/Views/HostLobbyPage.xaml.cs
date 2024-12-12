@@ -1,10 +1,12 @@
 using QRCoder;
 using TruthOrDrink.Helpers;
+using TruthOrDrink.Models;
 
 namespace TruthOrDrink.Views;
 
 public partial class HostLobbyPage : ContentPage
 {
+    private Game Game;
 	public HostLobbyPage()
 	{
 		InitializeComponent();
@@ -27,6 +29,8 @@ public partial class HostLobbyPage : ContentPage
 
         QRImage.Source = ImageSource.FromStream(() => new MemoryStream(qrCodeBytes));
         SessionCode.Text = formattedSessionCode;
+        Game = Game.Instance;
+
     }
 
     private async void GameSettingsBtn_Clicked(object sender, EventArgs e)

@@ -3,10 +3,107 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TruthOrDrink.Views.GameSettingsPage"
              Title="GameSettingsPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+    <Grid ColumnDefinitions="*"
+          RowDefinitions="*"
+          VerticalOptions="FillAndExpand"
+          Padding="30,0">
+
+        <Border Stroke="Black"
+                StrokeThickness="2"
+                StrokeShape="RoundRectangle, 10,10,10,10">
+            
+            <Grid ColumnDefinitions="*, *"
+                  RowDefinitions="auto, auto, auto, auto, auto, auto, auto, *"
+                  VerticalOptions="FillAndExpand"
+                  Padding="10,0">
+                
+                <Label Grid.ColumnSpan="2"
+                       Text="Game Settings"
+                       FontSize="Large"
+                       TextDecorations="Underline"
+                       HorizontalTextAlignment="Center"/>
+
+                <Label Grid.Row="1"
+                       Text="Type vragen"
+                       HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Center"/>
+                <Picker Grid.Row="1"
+                        Grid.Column="1"
+                        x:Name="QuestionKindPicker"
+                        HorizontalTextAlignment="Center"/>
+
+                <Label Grid.Row="2"
+                       Text="Gewaagdheid"
+                       HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Center" />
+                <Picker Grid.Row="2"
+                        Grid.Column="1"
+                        x:Name="QuestionLevelPicker"
+                        HorizontalTextAlignment="Center" />
+
+                <Label Grid.Row="3"
+                       Text="Categorieën"
+                       FontAttributes="Bold" />
+
+                <CollectionView Grid.Row="4"
+                                Grid.ColumnSpan="2"
+                                x:Name="QuestionCategoryCollectionView">
+
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid ColumnDefinitions="*, *">
+                                <Label Grid.Column="0"
+                                       HorizontalTextAlignment="Center"
+                                       VerticalTextAlignment="Center"
+                                       Text="{Binding .}" />
+
+                                <!-- Still need to find a way to reference to this Entry -->
+                                <Entry Grid.Column="1"
+                                       HorizontalTextAlignment="Center"
+                                       VerticalTextAlignment="Center"
+                                       Placeholder="Aantal"
+                                       Keyboard="Numeric" />
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+                
+                <Label Grid.Row="5"
+                       Text="Soort vragen"
+                       FontAttributes="Bold" />
+
+                <CollectionView Grid.Row="6"
+                                Grid.ColumnSpan="2"
+                                x:Name="QuestionTypeCollectionView">
+
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid ColumnDefinitions="*, *">
+                                <Label Grid.Column="0"
+                                       HorizontalTextAlignment="Center"
+                                       VerticalTextAlignment="Center"
+                                       Text="{Binding .}" />
+
+                                <!-- Still need to find a way to reference to this Entry -->
+                                <CheckBox Grid.Column="1"
+                                          HorizontalOptions="Center"/>
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+                <Button Grid.Row="7"
+                        Grid.ColumnSpan="2"
+                        Text="Opslaan"
+                        HeightRequest="40"
+                        WidthRequest="100"
+                        VerticalOptions="End"
+                        Margin="0,0,0,10"
+                        Clicked="SaveSettings"/>
+
+            </Grid>
+            
+        </Border>
+
+    </Grid>
 </ContentPage>

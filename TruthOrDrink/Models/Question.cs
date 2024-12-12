@@ -20,8 +20,7 @@ namespace TruthOrDrink.Models
     public enum QuestionType
     {
         Question,
-        Assignment,
-        Photo
+        Assignment
     }
 
     public enum QuestionCategory

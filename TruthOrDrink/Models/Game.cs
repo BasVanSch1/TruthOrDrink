@@ -10,9 +10,11 @@ namespace TruthOrDrink.Models
     {
         public List<GameQuestion> Questions { get; set; } = [];
         public List<Player> Players { get; set; } = [];
-        public List<QuestionCategory> QuestionCategories { get; set; } = [];
+        public Dictionary<QuestionCategory, int> QuestionCategories { get; set; } = [];
         public List<QuestionType> QuestionTypes { get; set; } = [];
         public int QuestionLevel { get; set; } = 1;
+
+        public static Game Instance { get; } = new Game();
 
         public void StartGame() { }
         public void StopGame() { }
