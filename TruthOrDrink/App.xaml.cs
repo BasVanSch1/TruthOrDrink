@@ -1,4 +1,5 @@
-﻿using TruthOrDrink.Views;
+﻿using TruthOrDrink.Data;
+using TruthOrDrink.Views;
 
 namespace TruthOrDrink
 {

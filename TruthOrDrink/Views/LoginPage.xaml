@@ -35,6 +35,12 @@
             x:Name="LoginBtn"
             Text="Login"
             Clicked="Login" />
+        
+        <Button 
+            x:Name="RegisterBtn"
+            Text="Register"
+            Clicked="RegisterBtn_Clicked"
+            Margin="0, 10, 0, 0"/>
 
     </VerticalStackLayout>
 
