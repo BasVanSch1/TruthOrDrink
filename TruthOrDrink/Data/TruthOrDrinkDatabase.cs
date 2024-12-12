@@ -22,6 +22,7 @@ namespace TruthOrDrink.Data
             await Database.CreateTableAsync<Question>();
             await Database.CreateTableAsync<Profile>();
             
+            Console.WriteLine("Database path: " + Database.DatabasePath);
         }
 
         public async Task<List<Question>> GetQuestionsAsync()
@@ -68,7 +69,7 @@ namespace TruthOrDrink.Data
         {
             if (id <= 0)
             {
-                return default; // returnt null waar het kan en anders 0;
+                return default; // return null waar het kan en anders 0;
             }
 
             await Init();
@@ -109,6 +110,7 @@ namespace TruthOrDrink.Data
             try
             {
                 // get the user from the database
+                await Init();
                 user = await Database.GetAsync<Profile>(username);
             } catch (Exception)
             {
@@ -116,6 +118,7 @@ namespace TruthOrDrink.Data
             }
             // Verify the password hash
             return PasswordHasher.VerifyPassword(password, user.PasswordHash);
+
         }
 
         public async Task<int> RegisterUser(string username, string password, string email)
@@ -143,7 +146,7 @@ namespace TruthOrDrink.Data
             {
                 return await Database.InsertAsync(profile);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return -1; // Unkown error (failed to insert user into database)
             }
