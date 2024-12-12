@@ -20,9 +20,9 @@ namespace TruthOrDrink
                 });
 
             builder.Services.AddSingleton<TruthOrDrinkDatabase>();
-            builder.Services.AddTransient<NewPage1>();
+            builder.Services.AddTransient<LoginPage>();
 #if DEBUG
-    		builder.Logging.AddDebug();
+            builder.Logging.AddDebug();
 #endif
 
             return builder.Build();

@@ -1,11 +1,13 @@
+using TruthOrDrink.Data;
+
 namespace TruthOrDrink.Views;
 
 public partial class ProfilePage : ContentPage
 {
-	public ProfilePage()
+    public ProfilePage()
 	{
-		InitializeComponent();
-	}
+        InitializeComponent(); 
+    }
 
     private async void LogoutBtn_Clicked(object sender, EventArgs e)
     {

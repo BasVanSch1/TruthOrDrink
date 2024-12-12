@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TruthOrDrink.Views.RegisterPage"
+             Title="Register Account">
+    <VerticalStackLayout
+        Padding="30, 0">
+        
+        <Label Text="Username" />
+        <Entry x:Name="UsernameEntry"
+               Placeholder="Username"
+               TextChanged="UsernameEntry_TextChanged"/>
+        <Label x:Name="UsernameError"
+               TextColor="Red"
+               IsVisible="False"/>
+
+        <Label Text="Email" />
+        <Entry x:Name="EmailEntry"
+               Placeholder="Email"
+               TextChanged="EmailEntry_TextChanged"/>
+        <Label x:Name="EmailError"
+               TextColor="Red"
+               IsVisible="False" />
+
+        <Label Text="Password" />
+        <Entry x:Name="PasswordEntry"
+               Placeholder="Password"
+               IsPassword="True"
+               TextChanged="PasswordEntry_TextChanged"/>
+        <Label x:Name="PasswordError"
+               TextColor="Red"
+               IsVisible="False"/>
+
+        <Button x:Name="RegisterBtn"
+                Text="Register"
+                Clicked="RegisterBtn_Clicked" />
+        <Label x:Name="RegisterError"
+               TextColor="Red"
+               IsVisible="False" />
+
+    </VerticalStackLayout>
+</ContentPage>

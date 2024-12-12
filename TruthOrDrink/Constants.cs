@@ -19,6 +19,6 @@ namespace TruthOrDrink
             SQLite.SQLiteOpenFlags.SharedCache;
 
         public static string DatabasePath =>
-            Path.Combine(FileSystem.AppDataDirectory, DatabaseFilename);
+            Path.Combine(FileSystem.Current.AppDataDirectory, DatabaseFilename);
     }
 }
