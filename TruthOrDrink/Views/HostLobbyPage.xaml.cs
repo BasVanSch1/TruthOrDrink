@@ -1,13 +1,17 @@
 using QRCoder;
 using TruthOrDrink.Helpers;
+using TruthOrDrink.Models;
 
 namespace TruthOrDrink.Views;
 
 public partial class HostLobbyPage : ContentPage
 {
+    private Game Game;
 	public HostLobbyPage()
 	{
-		InitializeComponent();
+        Game = Game.Instance;
+        Game.Reset(); // Whenever a new lobby gets created, reset the game
+        InitializeComponent();
         GenerateSessionCode();
 	}
 
@@ -27,6 +31,8 @@ public partial class HostLobbyPage : ContentPage
 
         QRImage.Source = ImageSource.FromStream(() => new MemoryStream(qrCodeBytes));
         SessionCode.Text = formattedSessionCode;
+        Game = Game.Instance;
+
     }
 
     private async void GameSettingsBtn_Clicked(object sender, EventArgs e)

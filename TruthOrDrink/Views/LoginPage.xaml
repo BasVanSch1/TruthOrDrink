@@ -15,7 +15,8 @@
         <Entry
             x:Name="UsernameEntry"
             Placeholder="Username"
-            TextChanged="Username_TextChanged" />
+            TextChanged="Username_TextChanged"
+            ReturnType="Next" />
         <Label
             x:Name="UsernameError"
             IsVisible="False"
@@ -25,7 +26,9 @@
             x:Name="PasswordEntry"
             IsPassword="True"
             Placeholder="Password"
-            TextChanged="Password_TextChanged" />
+            TextChanged="Password_TextChanged"
+            ReturnType="Send"
+            Completed="Login"/>
         <Label
             x:Name="PasswordError"
             IsVisible="false"

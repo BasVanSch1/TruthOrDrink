@@ -43,7 +43,7 @@ public partial class RegisterPage : ContentPage
             if (result >= 1)
             {
                 await DisplayAlert("Success", "User registered successfully.", "OK");
-                await Navigation.PushAsync(new LoginPage());
+                await Navigation.PopAsync(); // navigate back to loginpage
                 return;
             }
 
