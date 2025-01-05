@@ -10,6 +10,7 @@ public partial class HostLobbyPage : ContentPage
 	public HostLobbyPage()
 	{
         Game = Game.Instance;
+        Game.Reset(); // Whenever a new lobby gets created, reset the game
         InitializeComponent();
         GenerateSessionCode();
 	}

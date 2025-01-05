@@ -7,6 +7,7 @@ public partial class GameSettingsPage : ContentPage
 {
     private readonly Game Game = Game.Instance;
     private Dictionary<QuestionCategory, int> questionCategories = [];
+    private Dictionary<QuestionType, bool> questionTypes = [];
     public GameSettingsPage()
 	{
         // TODO:
@@ -22,10 +23,9 @@ public partial class GameSettingsPage : ContentPage
         // ItemPicker items
         List<String> QuestionKinds = ["Personal", "Pre-made", "Mixed"];
         List<int> QuestionLevels = [1, 2, 3, 4, 5];
-
-        List<QuestionType> questionTypes = new(Enum.GetValues<QuestionType>()); // same as: 'new List<QuestionType>(Enum.GetValues<QuestionType>())'
         
         questionCategories = Game.QuestionCategories;
+        questionTypes = Game.QuestionTypes;
 
         // Populating ItemPickers
         QuestionKindPicker.ItemsSource = QuestionKinds;
@@ -36,19 +36,15 @@ public partial class GameSettingsPage : ContentPage
 
         // Populating CollectionViews
         QuestionCategoryCollectionView.ItemsSource = questionCategories.ToList();
-
-        QuestionTypeCollectionView.ItemsSource = questionTypes;
+        QuestionTypeCollectionView.ItemsSource = questionTypes.ToList();
 
     }
 
     private async void SaveSettings(object sender, EventArgs e)
     {
         Game.QuestionLevel = (int)QuestionLevelPicker.SelectedItem; // set QuestionLevel
-
-        // Set amount of question per category
         Game.QuestionCategories = questionCategories; // update the Game.QuestionCategories dictionary with the new values.
-
-        // Set enabled question types (checkbox) (todo)
+        Game.QuestionTypes = questionTypes;
 
         await Navigation.PopAsync(); // navigate back
     }
@@ -61,6 +57,14 @@ public partial class GameSettingsPage : ContentPage
             {
                questionCategories[kvp.Key] = newValue;
             }
+        }
+    }
+
+    private void CheckBox_CheckedChanged(object sender, CheckedChangedEventArgs e)
+    {
+        if (sender is CheckBox checkbox && checkbox.BindingContext is KeyValuePair<QuestionType, bool> kvp)
+        {
+            questionTypes[kvp.Key] = e.Value;
         }
     }
 }
