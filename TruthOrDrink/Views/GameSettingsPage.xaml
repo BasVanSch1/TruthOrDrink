@@ -55,14 +55,16 @@
                                 <Label Grid.Column="0"
                                        HorizontalTextAlignment="Center"
                                        VerticalTextAlignment="Center"
-                                       Text="{Binding .}" />
+                                       Text="{Binding Key}" />
 
-                                <!-- Still need to find a way to reference to this Entry -->
+                                <!-- Still need to find a way to update the Value binding.-->
                                 <Entry Grid.Column="1"
                                        HorizontalTextAlignment="Center"
                                        VerticalTextAlignment="Center"
                                        Placeholder="Aantal"
-                                       Keyboard="Numeric" />
+                                       Keyboard="Numeric"
+                                       Text="{Binding Value, Mode=TwoWay}"
+                                       TextChanged="Entry_TextChanged"/>
                             </Grid>
                         </DataTemplate>
                     </CollectionView.ItemTemplate>

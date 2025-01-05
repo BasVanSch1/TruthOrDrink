@@ -9,7 +9,8 @@ public partial class HostLobbyPage : ContentPage
     private Game Game;
 	public HostLobbyPage()
 	{
-		InitializeComponent();
+        Game = Game.Instance;
+        InitializeComponent();
         GenerateSessionCode();
 	}
 
