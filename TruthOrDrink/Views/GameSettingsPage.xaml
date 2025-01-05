@@ -57,7 +57,6 @@
                                        VerticalTextAlignment="Center"
                                        Text="{Binding Key}" />
 
-                                <!-- Still need to find a way to update the Value binding.-->
                                 <Entry Grid.Column="1"
                                        HorizontalTextAlignment="Center"
                                        VerticalTextAlignment="Center"

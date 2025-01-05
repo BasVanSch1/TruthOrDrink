@@ -24,7 +24,6 @@ public partial class GameSettingsPage : ContentPage
         List<int> QuestionLevels = [1, 2, 3, 4, 5];
 
         List<QuestionType> questionTypes = new(Enum.GetValues<QuestionType>()); // same as: 'new List<QuestionType>(Enum.GetValues<QuestionType>())'
-        //List<QuestionCategory> questionCategories = new(Enum.GetValues<QuestionCategory>());
         
         questionCategories = Game.QuestionCategories;
 
@@ -46,9 +45,7 @@ public partial class GameSettingsPage : ContentPage
     {
         Game.QuestionLevel = (int)QuestionLevelPicker.SelectedItem; // set QuestionLevel
 
-        // Set amount of question per category (todo)
-        //Game.QuestionCategories = _questionCategories.ToDictionary(x => x.Key, x => x.Value);
-
+        // Set amount of question per category
         Game.QuestionCategories = questionCategories; // update the Game.QuestionCategories dictionary with the new values.
 
         // Set enabled question types (checkbox) (todo)

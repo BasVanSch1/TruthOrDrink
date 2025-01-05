@@ -13,7 +13,6 @@ namespace TruthOrDrink.Models
         public List<GameQuestion> Questions { get; set; } = [];
         public List<Player> Players { get; set; } = [];
 
-
         private Dictionary<QuestionCategory, int> questionCategories = [];
         public Dictionary<QuestionCategory, int> QuestionCategories
         {
@@ -24,7 +23,6 @@ namespace TruthOrDrink.Models
                 OnPropertyChanged();
             }
         }
-
 
         public List<QuestionType> QuestionTypes { get; set; } = [];
         public int QuestionLevel { get; set; } = 1;
