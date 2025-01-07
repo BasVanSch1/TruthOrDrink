@@ -20,5 +20,7 @@ namespace TruthOrDrink
 
         public static string DatabasePath =>
             Path.Combine(FileSystem.Current.AppDataDirectory, DatabaseFilename);
+
+        public const string RANDOM_FACT_API = "https://uselessfacts.jsph.pl/api/v2/facts/random";
     }
 }
