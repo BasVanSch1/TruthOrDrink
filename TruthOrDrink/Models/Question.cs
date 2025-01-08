@@ -15,7 +15,7 @@ namespace TruthOrDrink.Models
         public QuestionCategory Category { get; set; } = QuestionCategory.Normal;
         [NotNull]
         public int Level { get; set; } = 1;
-        Profile? CreatedBy { get; set; } = null;
+        public string? CreatedByUsername { get; set; } = null;
     }
 
     public enum QuestionType
