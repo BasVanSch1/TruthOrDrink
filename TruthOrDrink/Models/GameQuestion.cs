@@ -9,7 +9,6 @@ namespace TruthOrDrink.Models
     internal class GameQuestion : Question
     {
         public Dictionary<Player, AnswerType> AnsweredBy { get; set; } = [];
-
     }
 
     public enum AnswerType

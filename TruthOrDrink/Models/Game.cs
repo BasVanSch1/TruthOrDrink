@@ -19,7 +19,7 @@ namespace TruthOrDrink.Models
 
         public int QuestionLevel { get; set; } = 1;
 
-        public static Game Instance { get { return instance; } } // public singleton instance, the private instance can be accessed with this static property
+        public static Game Instance { get { return instance; } } // public singleton instance, the instance can be accessed with this static property
         private static readonly Game instance = new Game(); // private property that stores the instance, is only initialized once.
         public Game()
         {
@@ -32,24 +32,7 @@ namespace TruthOrDrink.Models
         public void GiveNextQuestion() { }
         public void AddPlayer(Player player) { }
         public void RemovePlayer(Player player) { }
-        public void AddQuestions(List<Question> questions)
-        {
-            foreach (var question in questions)
-            {
-                var gameQuestion = new GameQuestion()
-                {
-                    Id = question.Id,
-                    Text = question.Text,
-                    Type = question.Type,
-                    Category = question.Category,
-                    Level = question.Level,
-                    CreatedBy = question.CreatedBy,
-                    AnsweredBy = []
-                };
-
-                Questions.Add(gameQuestion);
-            }
-        }
+        public void SetQuestions(List<Question> questions) { }
         public void Reset()
         {
             Questions = [];
