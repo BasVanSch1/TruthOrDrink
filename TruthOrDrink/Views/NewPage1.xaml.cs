@@ -56,7 +56,7 @@ public partial class NewPage1 : ContentPage
 
         var question = new Question()
         {
-            Description = input,
+            Text = input,
             Type = QuestionType.Question,
         };
 
