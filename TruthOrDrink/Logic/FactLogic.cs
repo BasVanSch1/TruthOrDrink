@@ -5,7 +5,7 @@ namespace TruthOrDrink.Logic
 {
     class FactLogic
     {
-        public static async Task<string>? GetRandomFact()
+        public static async Task<string> GetRandomFact()
         {
             var client = new HttpClient();
             var response = await client.GetAsync(Constants.RANDOM_FACT_API);
