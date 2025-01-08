@@ -1,5 +1,3 @@
-using QRCoder;
-using TruthOrDrink.Helpers;
 using TruthOrDrink.Logic;
 
 namespace TruthOrDrink.Views;
