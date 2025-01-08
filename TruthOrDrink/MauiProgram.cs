@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Maui;
 using Microsoft.Extensions.Logging;
 using TruthOrDrink.Data;
+using TruthOrDrink.Logic;
 using TruthOrDrink.Models;
 using TruthOrDrink.Views;
 
@@ -23,6 +24,7 @@ namespace TruthOrDrink
             builder.Services.AddSingleton<TruthOrDrinkDatabase>();
             builder.Services.AddSingleton<Game>();
             builder.Services.AddTransient<LoginPage>();
+            builder.Services.AddTransient<DataGenerator>();
 #if DEBUG
             builder.Logging.AddDebug();
 #endif

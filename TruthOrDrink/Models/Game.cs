@@ -32,7 +32,24 @@ namespace TruthOrDrink.Models
         public void GiveNextQuestion() { }
         public void AddPlayer(Player player) { }
         public void RemovePlayer(Player player) { }
-        public void SetQuestions(List<Question> questions) { }
+        public void AddQuestions(List<Question> questions)
+        {
+            foreach (var question in questions)
+            {
+                var gameQuestion = new GameQuestion()
+                {
+                    Id = question.Id,
+                    Text = question.Text,
+                    Type = question.Type,
+                    Category = question.Category,
+                    Level = question.Level,
+                    CreatedByUsername = question.CreatedByUsername,
+                    AnsweredBy = []
+                };
+
+                Questions.Add(gameQuestion);
+            }
+        }
         public void Reset()
         {
             Questions = [];

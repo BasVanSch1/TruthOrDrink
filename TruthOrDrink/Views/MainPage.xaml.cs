@@ -1,5 +1,3 @@
-using QRCoder;
-using TruthOrDrink.Helpers;
 using TruthOrDrink.Logic;
 
 namespace TruthOrDrink.Views;
@@ -9,7 +7,7 @@ public partial class MainPage : ContentPage
 	public MainPage()
 	{
 		InitializeComponent();
-        GenerateQuote();
+        GenerateFact();
 	}
 
     private async void HostGameBtn_Clicked(object sender, EventArgs e)
@@ -32,7 +30,7 @@ public partial class MainPage : ContentPage
         await Navigation.PushAsync(new HowToPlayPage());
     }
 
-    private async void GenerateQuote()
+    private async void GenerateFact()
     {
         FactLabel.Text = await FactLogic.GetRandomFact();
     }

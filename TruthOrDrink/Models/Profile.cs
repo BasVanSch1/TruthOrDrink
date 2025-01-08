@@ -2,22 +2,18 @@
 
 namespace TruthOrDrink.Models
 {
+    [Table("Profile")]
     public class Profile
     {
         [PrimaryKey]
         public string Username { get; set; }
-        [NotNull]
         public string PasswordHash { get; set; }
-        [NotNull]
+        [Unique]
         public string Email { get; set; }
-        [NotNull]
         public string DisplayName { get; set; }
-        List<Question>? PersonalQuestions { get; set; } = null;
-        [NotNull]
+        List<Question>? PersonalQuestions { get; set; }
         public int Truths { get; set; } = 0;
-        [NotNull]
-        public int Drink { get; set; } = 0;
-        [NotNull]
+        public int Drinks { get; set; } = 0;
         public int Games { get; set; } = 0;
     }
 }
