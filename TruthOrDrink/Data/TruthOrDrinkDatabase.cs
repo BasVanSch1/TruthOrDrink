@@ -46,7 +46,7 @@ namespace TruthOrDrink.Data
             return await Database.UpdateAsync(question);
         }
 
-        public async Task<Question>? GetQuestionAsync(int id)
+        public async Task<Question?> GetQuestionAsync(int id)
         {
             if (id <= 0)
             {
@@ -150,6 +150,18 @@ namespace TruthOrDrink.Data
             {
                 return -1; // Unkown error (failed to insert user into database)
             }
+        }
+
+        public async Task<List<Question>?> GetQuestions(QuestionCategory category, List<QuestionType> types, int amount = 10, int maxLevel = 5)
+        {
+            await Init();
+            return await Database.Table<Question>()
+                .Where(q => q.Category == category)
+                .Where(q => types.Contains(q.Type)) // Filter out questions that are not in the types list
+                .Where(q => q.Level <= maxLevel) // Filter out questions that are above the maxLevel
+                .OrderBy(q => Guid.NewGuid()) // Randomize the order of the questions
+                .Take(amount) // Take the first 'amount' of questions
+                .ToListAsync();
         }
     }
 }
