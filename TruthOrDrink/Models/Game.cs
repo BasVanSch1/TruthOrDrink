@@ -27,11 +27,46 @@ namespace TruthOrDrink.Models
             PopulateTypesWithDefaults();
         }
 
-        public void StartGame() { }
-        public void StopGame() { }
-        public void GiveNextQuestion() { }
-        public void AddPlayer(Player player) { }
-        public void RemovePlayer(Player player) { }
+        // Methods
+        public GameQuestion? GetNextQuestion() 
+        {
+            if (Questions.Count == 0) // extra check, if there are no questions in the game, which shouldn't be the case, return null.
+            {
+                return null;
+            }
+
+            foreach (var question in Questions) // iterate through all Questions in the game and get the next unanswered question.
+            {
+                if (question.AnsweredBy.Count == 0) // if the question has not been answered yet
+                {
+                    return question;
+                }
+            }
+
+            return null; // if all questions have been answered, return null.
+        }
+
+        public List<Player>? ChoosePlayers()
+        {
+            if (Players.Count < 2)
+            {
+                return null;
+            }
+
+            var random = new Random();
+            var players = new List<Player>();
+
+            while (players.Count < 2)
+            {
+                var player = Players[random.Next(Players.Count)]; // get a random player from the playerlist
+                if (!players.Contains(player)) // check if the player is not already selected
+                {
+                    players.Add(player);
+                }
+            }
+            return players;
+        }
+
         public void AddQuestions(List<Question> questions)
         {
             foreach (var question in questions)
@@ -50,31 +85,35 @@ namespace TruthOrDrink.Models
                 Questions.Add(gameQuestion);
             }
         }
-        public void Reset()
+        public void Reset(bool keepSettings = false)
         {
-            Questions = [];
-            Players = [];
-            QuestionCategories = [];
-            QuestionTypes = [];
-            QuestionLevel = 1;
+            if (keepSettings == false)
+            {
+                Players = [];
+                QuestionCategories = [];
+                QuestionTypes = [];
+                QuestionLevel = 1;
 
-            PopulateCategoriesWithDefaults();
-            PopulateTypesWithDefaults();
+                PopulateCategoriesWithDefaults();
+                PopulateTypesWithDefaults();
+            }
+
+            Questions = [];
         }
 
         private void PopulateCategoriesWithDefaults()
         {
             foreach (QuestionCategory category in Enum.GetValues(typeof(QuestionCategory))) // populate the dictionary with all the categories and default values.
             {
-                QuestionCategories.Add(category, 0);
+                QuestionCategories.Add(category, 1);
             }
         }
 
         private void PopulateTypesWithDefaults()
         {
-            foreach (QuestionType type in Enum.GetValues(typeof(QuestionType)))
+            foreach (QuestionType type in Enum.GetValues<QuestionType>())
             {
-                QuestionTypes.Add(type, false);
+                QuestionTypes.Add(type, true);
             }
         }
     }

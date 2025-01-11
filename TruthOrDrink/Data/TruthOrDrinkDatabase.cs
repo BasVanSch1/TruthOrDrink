@@ -46,25 +46,6 @@ namespace TruthOrDrink.Data
             return await Database.UpdateAsync(question);
         }
 
-        public async Task<Question>? GetQuestionAsync(int id)
-        {
-            if (id <= 0)
-            {
-                return null;
-            }
-
-            await Init();
-
-            // return the Question, otherwise return null on error.
-            try
-            {
-                return await Database.GetAsync<Question>(id);
-            } catch (Exception)
-            {
-                return null;
-            }
-        }
-
         public async Task<T?> GetAsync<T>(int id) where T : new()
         {
             if (id <= 0)
