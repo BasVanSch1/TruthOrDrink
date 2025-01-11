@@ -8,6 +8,11 @@
           VerticalOptions="FillAndExpand"
           Padding="30,0">
 
+        <Label Grid.Row="0"
+               Grid.ColumnSpan="2"
+               Text="Deze pagina is nog niet af!"
+               />
+
         <Label Grid.ColumnSpan="2"
                Text="Create Question"
                FontSize="Large"
