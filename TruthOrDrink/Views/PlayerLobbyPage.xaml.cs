@@ -9,7 +9,8 @@ public partial class PlayerLobbyPage : ContentPage
 	{
 		InitializeComponent();
         GenerateSessionCode();
-	}
+        DisplayAlert("NOTE", "De functionaliteit om een lobby te joinen is niet werkend op het moment. Deze functie wordt later toegevoegd.\nOp het moment is het alleen mogelijk om een lobby te hosten.", "OK");
+    }
 
     private void GenerateSessionCode()
     {

@@ -2,11 +2,13 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TruthOrDrink.Views.HowToPlayPage"
-             Title="HowToPlayPage">
+             Title="How To Play">
     <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+        <Label Margin="0,0,0,5" FontSize="16" Text="Welkom bij Truth or Drink!" />
+        <Label Margin="0,0,0,10" Text="Een spel starten is heel eenvoudig, op het moment is het alleen mogelijk om lokaal een spel te hosten. Druk dus in het hoofdmenu op 'Host Game' om een lobby te creëren." />
+        <Label Margin="0,0,0,10" Text="Wanneer je in een lobby zit kun je spelers toevoegen door op het plusje te drukken rechtsbovenin de spelerslijst, in de 'Game Instellingen' pagina kun je instellen welk soort vragen je wil hebben." />
+        <Label Margin="0,0,0,10" Text="Voordat je het spel kunt starten moet je minimaal twee personen hebben en de vragen hebben toegevoegd door minimaal 1x de instellingen aan te passen" />
+        <Label Margin="0,0,0,10" Text="Zodra het spel gestart is worden willekeurig twee personen geselecteerd die de vraag moeten beantwoorden. Ze kunnen kiezen tussen Truth (waarheid vertellen) of Drink." />
+        <Label Text="Wanneer iemand voor Truth kiest moet de speler (of beide spelers wanneer ze allebei Truth kiezen) de waarheid vertellen. Kiezen beide spelers voor Drink dan moeten ze allebei drinken. " />
     </VerticalStackLayout>
 </ContentPage>
