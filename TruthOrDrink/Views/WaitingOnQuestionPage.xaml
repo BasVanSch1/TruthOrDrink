@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TruthOrDrink.Views.WaitingOnQuestionPage"
+             NavigationPage.HasNavigationBar="False">
+    <Grid ColumnDefinitions="*"
+          RowDefinitions="auto, auto, auto, *">
+        
+        <Label Grid.Row="0"
+               x:Name="WaitingText"
+               Text="Waiting..."
+               FontSize="16"
+               VerticalOptions="Center" 
+               HorizontalOptions="Center"
+               Margin="0,50"/>
+
+        <Label x:Name="PlayerNameAndAction"
+               Grid.Row="1"
+               Text="Player [name] has to do [action]"
+               FontSize="16"
+               VerticalOptions="Center"
+               HorizontalOptions="Center" />
+
+        <Image x:Name="AnswerTypeImage"
+               Grid.Row="2"
+               Source="drink.gif"
+               VerticalOptions="Center"
+               HorizontalOptions="Center"
+               IsAnimationPlaying="True"
+               Margin="15,0"/>
+
+        <Button x:Name="NextQuestionBtn"
+                Grid.Row="3"
+                Text="Volgende vraag"
+                VerticalOptions="End"
+                HorizontalOptions="Center"
+                Clicked="NextQuestionBtn_Clicked"
+                WidthRequest="150"
+                HeightRequest="50"
+                Margin="0,0,0,25"/>
+
+    </Grid>
+</ContentPage>

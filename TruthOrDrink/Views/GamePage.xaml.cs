@@ -57,16 +57,17 @@ public partial class GamePage : ContentPage
 
 			await DisplayAlert("Game Finished", scores, "END GAME");
             await Navigation.PopAsync();
+            await Navigation.PopAsync(); // Because the Scoreboard Alert gets opened on the WaitingOnQuestionPage, we need to pop twice to get back to the HostLobbyPage. I can't seem to find a way to easily wait until the Waiting page is closed.
             Game.Reset(true); // Reset the game but keep the settings
         }
 	}
 
-    private void NextQuestionBtn_Clicked(object sender, EventArgs e)
+    private async void NextQuestionBtn_Clicked(object sender, EventArgs e)
     {
         // Check if both players have answered the question
         if (AnswerPlayerOne.SelectedItem == null || AnswerPlayerTwo.SelectedItem == null || AnswerPlayerOne.SelectedIndex == 0 || AnswerPlayerTwo.SelectedIndex == 0)
         {
-            DisplayAlert("Error", "Beide spelers moeten de vraag beantwoorden.", "OK");
+            await DisplayAlert("Error", "Beide spelers moeten de vraag beantwoorden.", "OK");
             return;
         }
 
@@ -84,6 +85,25 @@ public partial class GamePage : ContentPage
         // Update the Player stats
         ChosenPlayers[0].AnswerQuestion(answerOne);
         ChosenPlayers[1].AnswerQuestion(answerTwo);
+
+        AnswerType waitingAnswerType = AnswerType.Drink; // default value is Drink, this stays the same if both players chose to drink.
+        string? playerNameToPerformAction = null; // this stays null if both players chose the same answer.
+
+        if (answerOne == AnswerType.Truth && answerTwo == AnswerType.Truth) // if both chose to tell the truth
+        {
+            waitingAnswerType = AnswerType.Truth;
+        }
+        else if (answerOne == AnswerType.Truth) // if only player one chose to tell the truth
+        {
+            waitingAnswerType = AnswerType.Truth;
+            playerNameToPerformAction = ChosenPlayers[0].DisplayName;
+        }
+        else if (answerTwo == AnswerType.Truth) // if only player two chose to tell the truth
+        {
+            waitingAnswerType = AnswerType.Truth;
+            playerNameToPerformAction = ChosenPlayers[1].DisplayName;
+        }
+        await Navigation.PushAsync(new WaitingOnQuestionPage(waitingAnswerType, playerNameToPerformAction));
 
         NextQuestion();
     }
