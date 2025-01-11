@@ -8,8 +8,8 @@
           VerticalOptions="FillAndExpand"
           Padding="30,0">
         
-        <Label Grid.Row="0" x:Name="QuestionNumber" Text="Vraag: x / x" />
-        <Label Grid.Row="1" x:Name="QuestionText" Text="Placeholder vraag" />
+        <Label Grid.Row="0" x:Name="QuestionNumber" Text="Vraag: x / x" FontSize="24"/>
+        <Label Grid.Row="1" x:Name="QuestionText" Text="Placeholder vraag" Margin="0,0,0,25"/>
 
         <Grid Grid.Row="2"
               RowDefinitions="auto, auto, auto"
@@ -17,12 +17,17 @@
             
             <Label Grid.Row="0"
                    Grid.Column="0"
-                   Text="Speler 1"/>
+                   Text="Speler 1"
+                   FontSize="16"
+                   FontAttributes="Bold"
+                   HorizontalTextAlignment="Center"/>
             <Label x:Name="QuestionPlayerNameOne"
                    Grid.Row="1"
-                   Grid.Column="0"/>
+                   Grid.Column="0"
+                   Margin="0,0,0,10"/>
             <Label Grid.Row="2"
-                   Text="Antwoord:" />
+                   Text="Antwoord:"
+                   FontAttributes="Bold"/>
             <Picker x:Name="AnswerPlayerOne"
                     Grid.Row="3"
                     Grid.Column="0"/>
@@ -35,12 +40,18 @@
 
             <Label Grid.Row="0"
                    Grid.Column="2"
-                   Text="Speler 2"/>
+                   Text="Speler 2"
+                   FontSize="16"
+                   FontAttributes="Bold"
+                   HorizontalTextAlignment="Center"/>
             <Label x:Name="QuestionPlayerNameTwo"
                    Grid.Row="1"
-                   Grid.Column="2"/>
+                   Grid.Column="2"
+                   Margin="0,0,0,10"/>
             <Label Grid.Row="2"
-                   Text="Antwoord:" />
+                   Grid.Column="2"
+                   Text="Antwoord:"
+                   FontAttributes="Bold"/>
             <Picker x:Name="AnswerPlayerTwo"
                     Grid.Row="3"
                     Grid.Column="2"/>   
@@ -48,7 +59,7 @@
 
         <Button x:Name="NextQuestionBtn"
                 Grid.Row="4"
-                Text="Volgende"
+                Text="Volgende vraag"
                 WidthRequest="100"
                 VerticalOptions="End"
                 Clicked="NextQuestionBtn_Clicked"/>
