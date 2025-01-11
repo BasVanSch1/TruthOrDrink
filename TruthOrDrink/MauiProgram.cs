@@ -1,9 +1,9 @@
 ﻿using CommunityToolkit.Maui;
 using Microsoft.Extensions.Logging;
 using TruthOrDrink.Data;
-using TruthOrDrink.Logic;
 using TruthOrDrink.Models;
 using TruthOrDrink.Views;
+using ZXing.Net.Maui.Controls;
 
 namespace TruthOrDrink
 {
@@ -15,6 +15,7 @@ namespace TruthOrDrink
             builder
                 .UseMauiApp<App>()
                 .UseMauiCommunityToolkit()
+                .UseBarcodeReader()
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");

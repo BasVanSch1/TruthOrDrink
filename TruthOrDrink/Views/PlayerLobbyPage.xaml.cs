@@ -5,16 +5,18 @@ namespace TruthOrDrink.Views;
 
 public partial class PlayerLobbyPage : ContentPage
 {
-	public PlayerLobbyPage()
+    private int sessionCode;
+	public PlayerLobbyPage(int sessioncode)
 	{
-		InitializeComponent();
+        sessionCode = sessioncode;
+
+        InitializeComponent();
         GenerateSessionCode();
         DisplayAlert("NOTE", "De functionaliteit om een lobby te joinen is niet werkend op het moment. Deze functie wordt later toegevoegd.\nOp het moment is het alleen mogelijk om een lobby te hosten.", "OK");
     }
 
     private void GenerateSessionCode()
     {
-        int sessionCode = RandomHelper.GetRandomNumber(1, 9999);
         string formattedSessionCode = sessionCode.ToString("D4");
 
         QRCodeGenerator qrGenerator = new QRCodeGenerator();
