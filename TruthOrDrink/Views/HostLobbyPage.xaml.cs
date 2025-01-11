@@ -55,6 +55,18 @@ public partial class HostLobbyPage : ContentPage
 
     private async void StartGameBtn_Clicked(object sender, EventArgs e)
     {
+        if (Game.Players.Count < 2)
+        {
+            await DisplayAlert("Error", "Minimum of 2 players needed to play this game.", "OK");
+            return;
+        }
+
+        if (Game.Questions.Count <= 0)
+        {
+            await DisplayAlert("Error", "No questions available, please add questions in the settings.", "OK");
+            return;
+        }
+
         await Navigation.PushAsync(new GamePage());
     }
 

@@ -19,12 +19,10 @@ namespace TruthOrDrink.Models
         {
             if (answer == AnswerType.Truth)
             {
-                // TODO: add game logic
                 Truths++;
             }
             else if (answer == AnswerType.Drink)
             {
-                // TODO: add game logic
                 Drinks++;
             }
         }
