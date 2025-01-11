@@ -36,36 +36,41 @@
                 Stroke="Black"
                 StrokeThickness="2">
 
-            <VerticalStackLayout x:Name="PlayerList"
-                                 Padding="5,0">
+            <VerticalStackLayout Padding="5,0">
                 <HorizontalStackLayout HorizontalOptions="End">
-                    <Label Text="+" TextColor="Green" FontSize="15" Margin="0,0,10,0"/>
+                    <ImageButton x:Name="AddLocalPlayerBtn"
+                                 Source="add.svg"
+                                 Clicked="AddLocalPlayerBtn_Clicked"
+                                 Margin="5,5,0,0"
+                                 MaximumWidthRequest="32"
+                                 MaximumHeightRequest="32"
+                                 BorderColor="Black"
+                                 BorderWidth="1"
+                                 BackgroundColor="Green"/>
+                    
+                    <ImageButton x:Name="RemoveLocalPlayerBtn"
+                                 Source="remove.svg"
+                                 Clicked="RemoveLocalPlayerBtn_Clicked"
+                                 Margin="5,5,0,0"
+                                 MaximumWidthRequest="32"
+                                 MaximumHeightRequest="32"
+                                 BorderColor="Black"
+                                 BorderWidth="1"
+                                 BackgroundColor="Red"/>
+
                 </HorizontalStackLayout>
 
-                <HorizontalStackLayout>
-                    <Image Source="home.svg" WidthRequest="16" HeightRequest="16" />
-                    <Label Text="Speler 1" TextColor="Green" Margin="5,0,5,0" />
-                    <Label Text="" TextColor="Red"/>
-                </HorizontalStackLayout>
-
-                <HorizontalStackLayout>
-                    <Image Source="home.svg" WidthRequest="16" HeightRequest="16" />
-                    <Label Text="Speler 2" TextColor="Red" Margin="5,0,5,0" />
-                    <Label Text="x" TextColor="Red"/>
-                </HorizontalStackLayout>
-
-                <HorizontalStackLayout>
-                    <Image Source="home.svg" WidthRequest="16" HeightRequest="16" />
-                    <Label Text="Speler 3" TextColor="Red" Margin="5,0,5,0" />
-                    <Label Text="x" TextColor="Red"/>
-                </HorizontalStackLayout>
-
-                <HorizontalStackLayout>
-                    <Image Source="home.svg" WidthRequest="16" HeightRequest="16" />
-                    <Label Text="Speler 4" TextColor="Red" Margin="5,0,5,0" />
-                    <Label Text="x" TextColor="Red"/>
-                </HorizontalStackLayout>
-
+                <CollectionView x:Name="PlayerListCollectionView">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid ColumnDefinitions="auto, auto">
+                                <Image Grid.Column="0" Source="home.svg" WidthRequest="16" HeightRequest="16" />
+                                <Label Grid.Column="1" Text="{Binding DisplayName}" TextColor="Green" Margin="5,0,5,0" />
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+                
             </VerticalStackLayout>
         </Border>
 

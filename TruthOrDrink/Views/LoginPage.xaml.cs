@@ -52,6 +52,7 @@ public partial class LoginPage : ContentPage
         if (inputValid)
         {
             await SecureStorage.SetAsync("IsAuthenticated", "true");
+            await SecureStorage.SetAsync("Username", UsernameEntry.Text);
             Vibration.Vibrate(500);
 
             NavigateToMainPage();
