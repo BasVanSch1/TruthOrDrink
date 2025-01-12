@@ -102,8 +102,7 @@ public partial class HostLobbyPage : ContentPage
         Player host = new Player() // Convert the profile to a player
         {
             DisplayName = profile.DisplayName,
-            ProfileUsername = profile.Username,
-            Profile = profile,
+            ProfileUsername = profile.Username
         };
 
         Game.Players.Add(host); // Add the host as a player

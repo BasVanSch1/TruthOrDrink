@@ -11,7 +11,6 @@ namespace TruthOrDrink.Models
         [Unique]
         public string Email { get; set; }
         public string DisplayName { get; set; }
-        List<Question>? PersonalQuestions { get; set; }
         public int Truths { get; set; } = 0;
         public int Drinks { get; set; } = 0;
         public int Games { get; set; } = 0;

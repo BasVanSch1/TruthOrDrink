@@ -13,7 +13,6 @@ namespace TruthOrDrink.Models
         public int Truths { get; set; } = 0;
         public int Drinks { get; set; } = 0;
         public string? ProfileUsername { get; set; }
-        public Profile? Profile { get; set; }
 
         public void AnswerQuestion(AnswerType answer)
         {
