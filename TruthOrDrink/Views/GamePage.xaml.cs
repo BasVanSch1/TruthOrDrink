@@ -49,13 +49,9 @@ public partial class GamePage : ContentPage
         else // If there are no questions left
 		{
 			// Get scores of all players
-			string scores = $"Scoreboard:\n";
-            foreach (var player in Game.Players)
-			{
-				scores += $"{player.DisplayName}: {player.Truths} Truths & {player.Drinks} Drinks.\n";
-			}
+			string scores = Game.GetScoreboard();
 
-			await DisplayAlert("Game Finished", scores, "END GAME");
+            await DisplayAlert("Game Finished", scores, "END GAME");
             await Navigation.PopAsync();
             await Navigation.PopAsync(); // Because the Scoreboard Alert gets opened on the WaitingOnQuestionPage, we need to pop twice to get back to the HostLobbyPage. I can't seem to find a way to easily wait until the Waiting page is closed.
             Game.Reset(true); // Reset the game but keep the settings

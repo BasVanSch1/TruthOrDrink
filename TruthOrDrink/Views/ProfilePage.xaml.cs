@@ -1,10 +1,13 @@
+using TruthOrDrink.Logic;
+
 namespace TruthOrDrink.Views;
 
 public partial class ProfilePage : ContentPage
 {
     public ProfilePage()
 	{
-        InitializeComponent(); 
+        InitializeComponent();
+        GenerateFact();
     }
 
     private async void LogoutBtn_Clicked(object sender, EventArgs e)
@@ -13,5 +16,10 @@ public partial class ProfilePage : ContentPage
         SecureStorage.Remove("Username");
         Navigation.InsertPageBefore(new LoginPage(), Navigation.NavigationStack[0]); // Insert LoginPage before the root, thus making it the new root.
 		await Navigation.PopToRootAsync(); // Go to the root page, which is now the LoginPage. This also clears the navigation stack up until the root page.
+    }
+
+    private async void GenerateFact()
+    {
+        FactLabel.Text = await FactLogic.GetRandomFact();
     }
 }

@@ -19,9 +19,9 @@ namespace TruthOrDrink.Data
                 return;
 
             Database = new SQLiteAsyncConnection(Constants.DatabasePath, Constants.Flags);
-            await Database.CreateTableAsync<Question>();
-            await Database.CreateTableAsync<Profile>();
-            
+            await Database.CreateTableAsync<Question>(); // Create the Question table in the database
+            await Database.CreateTableAsync<Profile>(); // Create the Profile table in the database
+
             Console.WriteLine("Database path: " + Database.DatabasePath);
         }
 

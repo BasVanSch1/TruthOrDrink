@@ -27,7 +27,8 @@
         <Border Grid.Row="3" Stroke="Black" StrokeThickness="1" HeightRequest="30">
             <Entry x:Name="SessionCodeEntry"
                    Placeholder="Sessie code"
-                   HeightRequest="30"/>
+                   HeightRequest="30"
+                   Keyboard="Numeric"/>
         </Border>
 
         <Button x:Name="JoinBySessionCodeBtn"

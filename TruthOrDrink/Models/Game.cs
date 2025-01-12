@@ -101,6 +101,17 @@ namespace TruthOrDrink.Models
             Questions = [];
         }
 
+        public string GetScoreboard()
+        {
+            string scores = $"Scoreboard:\n";
+            foreach (var player in Players)
+            {
+                scores += $"{player.DisplayName}: {player.Truths} Truths & {player.Drinks} Drinks.\n";
+            }
+
+            return scores;
+        }
+
         private void PopulateCategoriesWithDefaults()
         {
             foreach (QuestionCategory category in Enum.GetValues(typeof(QuestionCategory))) // populate the dictionary with all the categories and default values.

@@ -21,7 +21,7 @@ public partial class JoinLobbyPage : ContentPage
 
     private async void JoinBySessionCodeBtn_Clicked(object sender, EventArgs e)
     {
-        if (SessionCodeEntry.Text != null && SessionCodeEntry.Text.Length <= 4 && SessionCodeEntry.Text.Length >= 1)
+        if (!String.IsNullOrEmpty(SessionCodeEntry.Text) && SessionCodeEntry.Text.Length <= 4 && SessionCodeEntry.Text.Length >= 1)
         {
             if (int.TryParse(SessionCodeEntry.Text, out int sessionCode))
             {

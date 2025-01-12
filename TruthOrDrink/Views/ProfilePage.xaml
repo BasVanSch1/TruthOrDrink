@@ -5,12 +5,20 @@
              Title="ProfilePage">
     <VerticalStackLayout>
         <Label 
-            Text="Welcome to .NET MAUI!"
+            Text="Deze pagina is helaas niet nog niet af!"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
-
+        
         <Button x:Name="LogoutBtn"
                 Text="Logout"
                 Clicked="LogoutBtn_Clicked" />
+        
+        <Label FontAttributes="Bold"
+               TextDecorations="Underline"
+               Text="Random fact:" />
+
+        <Label x:Name="FactLabel"
+               FontAttributes="Italic" 
+               Text="Generating fact..." />
     </VerticalStackLayout>
 </ContentPage>
